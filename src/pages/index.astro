@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <script>
@@ -12,24 +12,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		var now = new Date().getTime();
 		var distance = countDownDate - now;
 		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var hours = Math.floor(
+			(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+		);
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		if(!countdownSelector) return;
-		countdownSelector.innerHTML = days + " days " + hours + " hours " + minutes + "m " + seconds + "s ";
+		if (!countdownSelector) return;
+		countdownSelector.innerHTML =
+			days +
+			" days " +
+			hours +
+			" hours " +
+			minutes +
+			"m " +
+			seconds +
+			"s ";
 		// if (distance < 0) {
 		// 	clearInterval(timerId);
 		// 	countdownSelector.innerHTML = "EXPIRED";
 		// }
-		
 	}
 
-	const countdown = setInterval(startCountdown, 1000);
-	
-
+	setInterval(startCountdown, 1000);
 </script>
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -37,22 +43,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<div class="m-auto" >
-				<img style="margin: auto;display:block;" width="200px" height="200px" src="/googielogo.svg" alt="" srcset="">
+			<div class="m-auto">
+				<img
+					style="margin: auto;display:block;"
+					width="200px"
+					height="200px"
+					src="/googielogo.svg"
+					alt=""
+					srcset=""
+				/>
 			</div>
-<div style="text-align: center;">
-	<h1>🧑‍🚀 Hello, Students!</h1>
-	<p>
-		Welcome to the official GoogIe Academy website!
-	</p>
-	<h2>Our launch is in:</h2>
-			<div>
-				<p id="countdown"> </p>	
+			<div style="text-align: center;">
+				<h1>🧑‍🚀 Hello, Students!</h1>
+				<p>Welcome to the official GoogIe Academy website!</p>
+				<h2>Our launch is in:</h2>
+				<div>
+					<p id="countdown"></p>
+				</div>
 			</div>
-</div>
-
-			
-			
 		</main>
 		<Footer />
 	</body>

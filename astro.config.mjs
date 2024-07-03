@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://github.com/rifkyputra/googIe',
-	base: 'gh-pages',
+	site: 'https://googieacademy.com',
 	integrations: [mdx(), sitemap()],
 });
